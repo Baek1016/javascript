@@ -1,0 +1,25 @@
+DOM 탐색을 명확하게 살 수있어여한다.
+
+
+cd 원하는_폴더_경로
+
+
+git clone https://github.com/Baek1016/javascript.git
+
+
+cd javascript
+
+2/1
+
+변수 선언
+초기화 차이
+var->초기화 시킨다.
+let = 동일한 이름을 생성시 오류 발생시킴
+const= 상수
+
+
+`문자와 숫자같이 있을시에 사용가능 단 java script에서만 사용 가능함.
+
+사칙연산
+
+2/2
