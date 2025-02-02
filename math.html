@@ -11,10 +11,10 @@
 <body>
     <h1>랜덤 숫자 맞추기!</h1>
     <button class="start">시작!</button>
-    <input type="number" disabled>
+    <input type="number"  disabled>
     <button class="check">체크!</button>
     <h3>❤️<span>10</span></h3>
-    <h4>여기에 메세지가 들어와요요</h4>
+    <h4></h4>
 
     <script>
         // $('button:nth-of-type(0)').click(function(){
@@ -28,17 +28,57 @@
         // $('button:nth-of-type(1)').click(function(){
         //     console.log('B');
         // });
+
+        let [num,life] = [0,10];
+
         $('button.start').click(function () {
+            // 비워있으면 숫자를 들고온다.
+            // console.log($(this).text());
+
+            num = parseInt(Math.random() * 100)+1;
+
             $('input').attr('disabled',false);
-            let num = parseInt(Math.random() * 100)+1;
-            console.log(num);
             
             $(this).attr('disabled',true);
+
+            //기본 세팅
+            life =10;
+            $('h3>span').text(life);
+            $('input').val(0);
+            
         });
         
+
         $('button.check').click(function(){
-            console.log($('input').val());
+
+            let userNum = $('input').val()*1;
+            console.log(`유저가 입력한 값: ${userNum} 컴퓨터 값: ${num}`);
+
+            if(userNum === num){
+                $('h4').text('정답입니다!');
+                
+            } else if(userNum > num){
+                $('h4').text('더 작은 수를 입력해주세요');
+                life --;
+
+            } else if(userNum < num){
+                $('h4').text('더 큰 수를 입력해주세요');
+                life --;
+            }
+            
+            $('h3>span').text(life);
+            console.log(life);
+            
+            if(life === 0){
+                alert('게임오버');
+                $('input').attr('disabled',true);
+                $(this).attr('disabled',true);
+                $('button.start').attr('disabled',false);
+                $('button.start').text('다시 시작');
+                $('h4').text('실패했습니다.');
+            }
         });
+
     </script>
 </body>
 
