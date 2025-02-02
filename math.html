@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <h1>랜덤 숫자 맞추기!</h1>
+    <button class="start">시작!</button>
+    <input type="number" disabled>
+    <button class="check">체크!</button>
+    <h3>❤️<span>10</span></h3>
+    <h4>여기에 메세지가 들어와요요</h4>
+
+    <script>
+        // $('button:nth-of-type(0)').click(function(){
+        //     let ind = $(this).index();
+        //     if(ind === 0){
+        //         alert('A');
+        //     }else {
+        //         console.log();
+        //     }
+        // });
+        // $('button:nth-of-type(1)').click(function(){
+        //     console.log('B');
+        // });
+        $('button.start').click(function () {
+            $('input').attr('disabled',false);
+            let num = parseInt(Math.random() * 100)+1;
+            console.log(num);
+            
+            $(this).attr('disabled',true);
+        });
+        
+        $('button.check').click(function(){
+            console.log($('input').val());
+        });
+    </script>
+</body>
+
+</html>
