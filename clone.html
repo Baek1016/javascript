@@ -35,22 +35,17 @@
         ];
         
         obj.forEach(function(e){
-            
             let h2Clone = h2.clone();
+            let h3Clone = h3.clone();
             
             h2Clone.text(e.id);
+            h3Clone.text(e.name);
             
             wrap.append(h2Clone);
+            wrap.append(h3Clone);
             
             //console.log(h2Clone);
             //console.log(e.id);
-            
-            let h3Clone = h3.clone();
-
-            h3Clone.text(e.pw);
-
-            wrap.append(h3Clone);
-            
         })
 
         // for(let i =0;i<10;i++){
