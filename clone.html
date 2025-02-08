@@ -34,6 +34,7 @@
             },
         ];
         
+
         obj.forEach(function(e){
             let h2Clone = h2.clone();
             let h3Clone = h3.clone();
@@ -47,7 +48,11 @@
             //console.log(h2Clone);
             //console.log(e.id);
         })
+        console.log($('h2'));
+        //console.log(h2);
 
+        h2.remove();
+        h3.remove();
         // for(let i =0;i<10;i++){
         //     const h2Clone = h2.clone();
         //     wrap.append(h2Clone);
