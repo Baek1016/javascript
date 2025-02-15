@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slide.html</title>
+    <style>
+        div.view{
+            width: 50%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        div.slideGroup{
+            width: 500%;
+            display: flex;
+        }
+        div.slide{
+            width: calc(100% / 5);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 500px;
+        }
+        div.slide.s1{
+            background-image: url('./images/image01.jpg');
+        }
+        div.slide.s2{
+            background-image: url('./images/image02.jpg');
+        }
+        div.slide.s3{
+            background-image: url('./images/image03.jpg');
+        }
+        div.slide.s4{
+            background-image: url('./images/image04.jpg');
+        }
+        div.slide.s5{
+            background-image: url('./images/image05.jpg');
+        }
+        div.btns{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            margin: auto;
+            height: 40px;
+            top: 0;
+            bottom: 0;
+        }
+
+        div.btns>div{
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <script src="./jquery.js"></script>
     <div class="view">
         <div class="slideGroup">
             <div class="slide s1"></div>
@@ -19,5 +71,43 @@
             <div class="next">⏩</div>
         </div>
     </div>
+    <script>
+        let btn= $('.btns>div');
+        let group = $('.slideGroup');
+        let idx = 0;
+
+        btn.click(function(){
+            
+            let left = $(this).hasClass('prev');
+            
+            if(left){
+                btn.eq(1).css('opacity','1');
+                
+                if(idx>0){
+                idx--;
+                }else {
+                    $(this).css({
+                        opacity:'0',
+                        cursor:'default',});
+                }
+
+            }else {
+                btn.eq(0).css('opacity','1');
+
+                if(idx<4){
+                idx++;
+                }else {
+                    $(this).css({
+                        opacity:'0',
+                        cursor:'default',});
+                }
+
+            }
+            console.log(idx);
+            group.animate({
+                marginLeft:`-${100 * idx}%`
+            },500);
+        })
+    </script>
 </body>
 </html>
